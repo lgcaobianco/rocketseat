@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>desafio modulo 2</title>
+</head>
+
+<body>
+    <!-- ex 1 --> 
+    <div class="ex1"><h1>Exercicio 1 e 2</h1>
+        <button id="ex1">Clique aqui</button>
+        <div name="lugarOndeInserirBotoes"></div>
+    </div>
+    
+    <!-- ex 3 -->
+    <div class="ex3"> <h1>Exercicio 3</h1>
+        <ul id="lista">
+        </ul>
+    </div>
+    
+    <div class="ex4"> <h1>Exercicio 4</h1>
+        <input type="text" id="ex4" />
+        <button onclick="adicionar();" id="ex4">Clique aqui</button>
+        <ul id="ex4">
+        </ul>
+    </div>
+    
+    
+    
+    
+</body>
+
+<script> // ex 1
+    var btn = document.querySelector('#ex1');
+    btn.onclick = function(){
+        var addBtn = document.querySelector('div[name=lugarOndeInserirBotoes]')
+        var novoElemento = document.createElement('div');
+        novoElemento.style.width = 100;
+        novoElemento.style.height = 100;
+        novoElemento.style.backgroundColor = 'red';
+        novoElemento.onmouseover = function(){
+            novoElemento.style.backgroundColor = getRandomColor();
+        }
+        novoElemento.onmouseout = function(){
+            novoElemento.style.backgroundColor = 'red';
+        }
+        addBtn.appendChild(novoElemento);
+    }
+</script>
+<script>
+    function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+
+<script> // ex 3
+    var nomes = ["Diego", "Gabriel", "Lucas"];
+    var lista = document.querySelector('#lista');
+    for(nome of nomes){
+        var itemLista = document.createElement('li');
+        var textNode = document.createTextNode(nome);
+        itemLista.appendChild(textNode);
+        lista.appendChild(itemLista);
+    }
+</script>
+
+<script> // ex 4
+    function adicionar(){
+        var input = document.querySelector('input#ex4');
+        if(input.value !== ""){
+            var element = document.querySelector('ul#ex4');
+            var liElement = document.createElement('li');
+            var textNode = document.createTextNode(input.value);
+            input.value = "";
+            liElement.appendChild(textNode);
+            element.appendChild(liElement);
+        } else{
+            alert("Voce n digitou nd, safadinho!");
+        }
+    }
+</script>
+
+
+
+</html>

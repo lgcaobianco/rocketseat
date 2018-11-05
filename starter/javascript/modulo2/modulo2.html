@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Curso Javascript</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" name="nome" id="nome"/>
+        <button class="botao">Adicionar</button>
+
+        <!-- alterando estilos -->
+        <div id="box"></div>
+    </div>
+    
+    
+    <script> // eventos inline 
+        var inputElement = document.getElementById('nome');
+        var inputElement2 = document.querySelectorAll('input[name=nome]');
+        console.log(inputElement);
+    </script>
+    <script> // trabalhando com a dom
+        var inputElement = document.getElementById('nome');
+        var btn = document.querySelector('button.botao');
+        btn.onclick = function() {
+            var text = inputElement.value;
+            alert(text);
+        }
+        console.log(btn);
+    </script>
+    <script> // lidando com elementos
+        var linkElement = document.createElement('a');
+        linkElement.setAttribute('href', 'http://www.google.com.br');
+
+        var textElement = document.createTextNode('acessar o meu site');
+        linkElement.appendChild(textElement);
+
+        var containerElement = document.querySelector('#app');
+        containerElement.appendChild(linkElement);
+
+        var inputElement = document.querySelector('#nome');
+        containerElement.removeChild(inputElement);
+    </script>
+
+    <script> // alterando estilos
+        var boxElement = document.querySelector('#box');
+        boxElement.style.width = 100;
+        boxElement.style.height = 100;
+        boxElement.style.backgroundColor = 'red';
+    </script>
+</body>
+
+
+</html>
